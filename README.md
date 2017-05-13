@@ -13,45 +13,45 @@ After these two tutorials you should see the following images
 ![image](https://github.com/qih008/CMPE281-API-Gateway/blob/master/image/Cassandra2.png)
 ![image](https://github.com/qih008/CMPE281-API-Gateway/blob/master/image/Cassandra3.png)
 
-The last step is going to Kong website, and download the appropriate version, in my case, it should be Ubuntu 14.04 version
+The last step is going to Kong website, and download the appropriate version, in my case, it should be Ubuntu 14.04 version <br/>
 https://getkong.org/install/
 
-scp the package to ubuntu server and use the following command:
-sudo apt-get update
-sudo apt-get install openssl libpcre3 procps perl
+scp the package to ubuntu server and use the following command: <br/>
+sudo apt-get update <br/>
+sudo apt-get install openssl libpcre3 procps perl <br/>
 sudo dpkg -i kong-0.10.2.*.deb
 
-change kong config file, to use cassandra as kong's database:
-cd /etc/kong
-sudo chmod 777 kong.conf.default
+change kong config file, to use cassandra as kong's database: <br/>
+cd /etc/kong <br/>
+sudo chmod 777 kong.conf.default <br/>
 vi kong.conf.default
 
 change database: cassandra <br />
-change cassandra_contact_points = 10.0.0.217, 10.0.0.208, 10.0.0.214 (my 3 nodes ip address)
+change cassandra_contact_points = 10.0.0.217, 10.0.0.208, 10.0.0.214 (my 3 nodes ip address) <br/>
 :wq
 
 kong start --conf /etc/kong/kong.conf.default
 
 Now you should see kong is successfully start!
 
-Notes on how to use kong:
-Post a new api
+Notes on how to use kong: <br/>
+Post a new api <br/>
 curl -i -X POST \
   --url http://10.0.0.217:8001/apis/ \
   --data 'name=San_Jose' \
   --data 'hosts=San_Jose' \
   --data 'upstream_url=http://ec2-54-219-163-27.us-west-1.compute.amazonaws.com:3000'
 
-Check all apis
+Check all apis <br/>
 curl -i -X GET http://localhost:8001/apis/
 
-Check just one api
+Check just one api <br/>
 curl -i -X GET http://localhost:8001/apis/{name or id}
 
-Delete api
+Delete api <br/>
 curl -i -X DELETE http://localhost:8001/apis/{name or id}
 
-Update or create api
+Update or create api <br/>
 curl -i -X PUT http://localhost:8001/apis/
 
 Here is my current apis
