@@ -2,7 +2,7 @@
 
 Enviroment: Ubuntu 14.04
 
-First follow this tutorial to create single working Cassandra 
+First follow this tutorial to create single working Cassandra <br/>
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
 
 Then follow this tutorial to connect three single node cassadnra together as a 3-Node Cassandra DB Cluster
