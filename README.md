@@ -1,10 +1,8 @@
-# CMPE281-API-Gateway
-
-Create Kong API Gateway that is deployed on AWS with a 3-Node Cassandra DB Cluster
+# Create Kong API Gateway that is deployed on AWS with a 3-Node Cassandra DB Cluster
 
 Enviroment: Ubuntu 14.04
 
-First follow this tutorial to create single working Cassandra
+First follow this tutorial to create single working Cassandra 
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
 
 Then follow this tutorial to connect three single node cassadnra together as a 3-Node Cassandra DB Cluster
@@ -28,7 +26,7 @@ cd /etc/kong
 sudo chmod 777 kong.conf.default
 vi kong.conf.default
 
-change database: cassandra
+change database: cassandra <br />
 change cassandra_contact_points = 10.0.0.217, 10.0.0.208, 10.0.0.214 (my 3 nodes ip address)
 :wq
 
@@ -55,3 +53,6 @@ curl -i -X DELETE http://localhost:8001/apis/{name or id}
 
 Update or create api
 curl -i -X PUT http://localhost:8001/apis/
+
+Here is my current apis
+![image](https://github.com/qih008/CMPE281-API-Gateway/blob/master/image/apis.png)
